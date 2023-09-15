@@ -40,7 +40,6 @@ while userGuess == 'wrong':
              print("No, go higher. Guess again")
     except ValueError: 
          print("I said guess a number!")
-    
    
 
 
