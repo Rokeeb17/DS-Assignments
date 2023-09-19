@@ -39,28 +39,7 @@ food = False
 knife = False
 crowbar = False
 movesRemaining = 15
-
-def startGame():
-    global story
-    print("Hello! Welcome to Text Adventure! Would you like to begin?")
-    begin = input("Enter yes to begin your adventure: ").lower()
-    if begin == 'yes':
-        print("Let's go!")
-        sleep(1)
-        name = input("What is your name? ")
-        print(f"Okay {name}, fasten your seatbelt, and let's get to it... ")
-        sleep(1)
-        print (story)
-        realBegin = ""
-        while realBegin != 'yes' and realBegin != 'no':
-            realBegin = input("Are you ready? Enter yes or no: ").lower()
-            if realBegin == 'yes':
-                hallWay()
-            elif realBegin == 'no':
-                quit()
-            else:
-                print("Please enter Yes or No: ")
-            
+        
 def movesLeft():
     global movesRemaining
     movesRemaining -= 1
@@ -204,7 +183,6 @@ def attic():
         print("You've done it! You are safe in the house and you're no longer at risk of dying. Well done on completing the game! You are a true adventurer!")
         quit()
 
-
 def zombieKiller():
     sleep(1)
     global zombie
@@ -228,4 +206,21 @@ def zombieKiller():
     zombie = True
     bedroom()
 
-startGame()
+print("Hello! Welcome to Text Adventure! Would you like to begin?")
+begin = input("Enter yes to begin your adventure: ").lower()
+if begin == 'yes':
+    print("Let's go!")
+    sleep(1)
+    name = input("What is your name? ")
+    print(f"Okay {name}, fasten your seatbelt, and let's get to it... ")
+    sleep(1)
+    print (story)
+    realBegin = ""
+    while realBegin != 'yes' and realBegin != 'no':
+        realBegin = input("Are you ready? Enter yes or no: ").lower()
+        if realBegin == 'yes':
+            hallWay()
+        elif realBegin == 'no':
+            quit()
+        else:
+            print("Please enter Yes or No: ")
