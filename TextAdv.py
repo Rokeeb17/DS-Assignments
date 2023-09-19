@@ -40,31 +40,30 @@ knife = False
 crowbar = False
 movesRemaining = 15
 
-def startGame():
-    global story
-    print("Hello! Welcome to Text Adventure! Would you like to begin?")
-    begin = input("Enter yes to begin your adventure: ").lower()
-    if begin == 'yes':
-        print("Let's go!")
-        sleep(1)
-        name = input("What is your name? ")
-        print(f"Okay {name}, fasten your seatbelt, and let's get to it... ")
-        sleep(1)
-        print (story)
-        realBegin = ""
-        while realBegin != 'yes' and realBegin != 'no':
-            realBegin = input("Are you ready? Enter yes or no: ").lower()
-            if realBegin == 'yes':
-                hallWay()
-            elif realBegin == 'no':
-                quit()
-            else:
-                print("Please enter Yes or No: ")
+
+print("Hello! Welcome to Text Adventure! Would you like to begin?")
+begin = input("Enter yes to begin your adventure: ").lower()
+if begin == 'yes':
+    print("Let's go!")
+    sleep(1)
+    name = input("What is your name? ")
+    print(f"Okay {name}, fasten your seatbelt, and let's get to it... ")
+    sleep(1)
+    print (story)
+    realBegin = ""
+    while realBegin != 'yes' and realBegin != 'no':
+        realBegin = input("Are you ready? Enter yes or no: ").lower()
+        if realBegin == 'yes':
+            hallWay()
+        elif realBegin == 'no':
+            quit()
+        else:
+            print("Please enter Yes or No: ")
             
 def movesLeft():
     global movesRemaining
     movesRemaining -= 1
-    print(f"You have {movesRemaining} moves remaining.")
+    print(f"You have {movesRemaining} minutes remaining.")
     if movesRemaining == 0:
         print("Your injuries have gotten the better of you. Better luck next time!")
         quit()
@@ -100,7 +99,7 @@ def livingRoom():
             keys = True
             print("You now have a sword and a key in your inventory! Where would you like to go?")
     else: 
-        print("You have entered the living room, which is now empty. It's actually quite depressing. Where would you like to go")
+        print("You have entered the living room, which is now empty. It's actually quite depressing. Where would you like to go?")
     pathPicker = ""
     while pathPicker not in directions:
         pathPicker = input('Choose forward, left, right or backward: ').lower()
@@ -129,7 +128,7 @@ def kitchen():
             food = True
             knife = True
             movesRemaining += 3
-            print(f"You have now collected these items in your invetory. You now have {movesRemaining} moves left thanks to the food in your bag. There are no doors to your right or left. Ahead of you there is a pantry and the hallway is behind you Where would you like to go?")
+            print(f"You have now collected these items in your invetory. You now have {movesRemaining} minutes left thanks to the food in your bag. There are no doors to your right or left. Ahead of you there is a pantry and the hallway is behind you Where would you like to go?")
     else:
         print("You have entered the kitchen. It's quite small and there are no doors to your right or left. Where would you like to go?")
     pathPicker = ""
@@ -227,5 +226,3 @@ def zombieKiller():
         hallWay()
     zombie = True
     bedroom()
-
-startGame()
