@@ -38,6 +38,7 @@ zombie = False
 food = False
 knife = False
 crowbar = False
+movesRemaining = 15
 
 def startGame():
     global story
@@ -45,10 +46,10 @@ def startGame():
     begin = input("Enter yes to begin your adventure: ").lower()
     if begin == 'yes':
         print("Let's go!")
-        sleep(2)
+        sleep(1)
         name = input("What is your name? ")
         print(f"Okay {name}, fasten your seatbelt, and let's get to it... ")
-        sleep(2)
+        sleep(1)
         print (story)
         realBegin = ""
         while realBegin != 'yes' and realBegin != 'no':
@@ -60,10 +61,18 @@ def startGame():
             else:
                 print("Please enter Yes or No: ")
             
-
+def movesLeft():
+    global movesRemaining
+    movesRemaining -= 1
+    print(f"You have {movesRemaining} moves remaining.")
+    if movesRemaining == 0:
+        print("Your injuries have gotten the better of you. Better luck next time!")
+        quit()
 
 def hallWay():
+    sleep(1)
     directions = ['forward', 'left', 'right']
+    movesLeft()
     print("You have made into the hallway. Behind you is the entrance you came from, but you don't want to go back out there! Would you like to go forward, left or right?")
     pathPicker = ""
     while pathPicker not in directions:
@@ -78,9 +87,11 @@ def hallWay():
             print('Please choose from the available options. I know it might be tedious but please also spell it according to the prompt.')
 
 def livingRoom():
+    sleep(1)
     directions = ['backward', 'left', 'right']
     global swords
     global keys
+    movesLeft()
     if swords == False and keys == False:
         print("You have entered the living room. Here you find a set of keys and some decorative swords. Would you like to pick them up?")
         haveSwordKeys = input('Yes or No: ').lower()
@@ -105,16 +116,20 @@ def livingRoom():
             print('Please choose from the available options. I know it might be tedious but please also spell it according to the prompt.')
         
 def kitchen():
+    sleep(1)
     directions = ['backward']
     global food
     global knife
+    global movesRemaining
+    movesLeft()
     if food == False and knife == False:
         print("You have entered the kitchen, where some food and a knife instantly catch your eye. Would you like to collect these items? ")
         haveFoodKnife = input('Yes or No: ').lower()
         if haveFoodKnife == 'yes':
             food = True
             knife = True
-            print("You have now collected these items in your invetory. There are no doors to your right or left. Ahead of you there is a pantry and the hallway is behind you Where would you like to go?")
+            movesRemaining += 3
+            print(f"You have now collected these items in your invetory. You now have {movesRemaining} moves left thanks to the food in your bag. There are no doors to your right or left. Ahead of you there is a pantry and the hallway is behind you Where would you like to go?")
     else:
         print("You have entered the kitchen. It's quite small and there are no doors to your right or left. Where would you like to go?")
     pathPicker = ""
@@ -128,11 +143,13 @@ def kitchen():
             print('Please choose from the available options. I know it might be tedious but please also spell it according to the prompt.')
         
 def bedroom():
+    sleep(1)
     directions = ['right', 'forward']
     global keys
     global zombie
     global swords
     global knife
+    movesLeft()
     if keys == False:
         print("You have found the bedroom, but the door is locked. The key is somewhere in the house and you need to find it to enter. You turn around head back.")
         hallWay()
@@ -150,11 +167,11 @@ def bedroom():
             else:
                 print('Please choose from the available options. I know it might be tedious but please also spell it according to the prompt.')
 
-    
-
 def bathroom():
+    sleep(1)
     directions = ['right', 'backward']
     global crowbar
+    movesLeft()
     bathroomStory = "You have now entered the bathroom. You see a bath tub, a toilet and a door back to the living room on your right."
     crowbarConfirm = "You have now added the crowbar to your inventory."
     crowbarCheck = "You also see a crowbar lying on the ground. Would you like to pick it up?"
@@ -174,9 +191,10 @@ def bathroom():
         else:
             print('Please choose from the available options. I know it might be tedious but please also spell it according to the prompt.')
 
-
 def attic():
+    sleep(1)
     global crowbar
+    movesLeft()
     if crowbar == False:
         print("You have now reached the attic. However the door seems to be locked somehow, but not by a key. You might be able to pry it open with the right tools... Why not explore and see what you find?")
         livingRoom()
@@ -188,9 +206,11 @@ def attic():
 
 
 def zombieKiller():
+    sleep(1)
     global zombie
     global swords
     global knife
+    movesLeft()
     fightStory1 = "It is a tough battle but you obliterate the and throw its dismantled corpse outside the window through a small crack you found!"
     fightStory2 = " With the zombie gone, you look around and see a door to a bathroom up ahead."
     print("You find a zombie! How did it even get in? That doesn't matter though. It needs to die. Are you ready to fight?")
