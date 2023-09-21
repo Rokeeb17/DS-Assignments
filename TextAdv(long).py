@@ -198,7 +198,7 @@ def attic():
     else:
         print("You have now reached the attic. You use the crowbar to force the door open and you climb inside. You turn on the light... Oh wow! You have found the first aid kit! You're not a doctor but you give everything you have into fixing that leg of yours.")
         sleep(2)
-        print(stylize_text(f"You've done it! You made it with {movesRemaining} minutes left! You are safe in the house and you're no longer at risk of dying. Well done on completing the game! You are a true adventurer!", Fore.RED, Style.BRIGHT))
+        print(stylize_text(f"You've done it! You made it with {movesRemaining} minutes left! You are safe in the house and you're no longer at risk of dying. Well done on completing the game! You are a true adventurer!", Fore.GREEN, Style.BRIGHT))
         quit()
 
 def zombieKiller():
@@ -240,7 +240,7 @@ if begin == 'yes':
         if realBegin == 'yes':
             hallWay()
         elif realBegin == 'no':
-            print("What a wimp! Come back when you've toughened up a little. Until then...")
+            print(stylize_text("What a wimp! Come back when you've toughened up a little. Until then...", Fore.RED, Style.BRIGHT))
             quit()
         else:
             print("Please enter Yes or No: ")
