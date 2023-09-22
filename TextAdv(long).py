@@ -225,7 +225,7 @@ def zombieKiller():
     bedroom()
 
 print(stylize_text("Hello! Welcome to Text Adventure! Would you like to begin?", Fore.BLUE, Style.BRIGHT))
-while True:
+while True: ## keeps running until conditions are met
     begin = input("Enter yes to begin your adventure: ").lower()
     if begin == 'yes':
         print(stylize_text("Let's go!", Fore.RED, Style.BRIGHT))
@@ -236,7 +236,7 @@ while True:
         print (story)
         print(stylize_text("You will have '20 minutes' to get through the game, with every move reducing your time by a minute. Some acts will reduce it faster and some items will increase it. Make your choices wisely!", Fore.RED, Style.BRIGHT))
         realBegin = ""
-        while realBegin != 'yes' and realBegin != 'no':
+        while realBegin != 'yes' and realBegin != 'no': ## break out of loop when valid input is read
             realBegin = input("Are you ready? Enter yes or no: ").lower()
             if realBegin == 'yes':
                 hallWay()
