@@ -90,6 +90,8 @@ def livingRoom():
             swords = True ## updating the variable so it no longer triggers the if statement
             keys = True
             print("You now have a sword and a key in your inventory! Where would you like to go?")
+        else:
+            print("Your loss... you'll regret that later. Come back to the living room when you do. Where would you like to go? ")
     else: 
         print("You have entered the living room, which is now empty. It's actually quite depressing. Where would you like to go?")
     pathPicker = ""
