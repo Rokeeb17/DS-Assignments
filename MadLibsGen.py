@@ -17,15 +17,32 @@ Compared to the prior projects, this project focuses far more on strings and con
 Have some fun coming up with some wacky stories for this!
 """
 
-#let's get a story
-"""I went to the shop and bought apples. While I was there I saw Ricky Gervais. He gave me a 
-bike and told me to go downtown, to the bad neighbourhood. I got there and was attacked by tigers 
-gorillas"""
+"""
+Description: Random Story
+Author: Rokeeb 
+"""
 
-print('Let the game begin!')
-name = input('Enter a name: ')
-noun = input('Enter a noun: ')
+print('Let Mad Libs begin!') 
+name = input('Enter a name: ')  ## collect user inputs for different prompts
+adj1 = input('Enter an adjective: ')
+adj2 = input('Enter an adjective: ')
+adj3 = input('Enter an adjective: ')
 verb = input('Enter a verb: ')
-celeb = input('Enter a celeb name: ')
+noun1 = input('Enter a noun: ')
+noun2 = input('Enter a noun: ')
+animal = input('Enter an animal: ')
+food = input('Enter a food: ')
+fruit = input('Enter a fruit: ')
+superhero = input('Enter a superhero: ')
+country = input('Enter a country: ')
+dessert = input('Enter a dessert: ')
+year = input('Enter a year: ')
+
+story1 = (f"This morning {name} woke up feeling {adj1}. 'It is going to be a {adj2} day!' Outside, a bunch of {animal}s were protesting to keep \
+      {food} in stores. They began to {verb} to the rhythm of the {noun1}, which made all the {fruit}s very {adj3}. Concerned, {name} texted \
+        {superhero}, who flew {name} to {country} and dropped {name} in a puddle of frozen {dessert}. {name} woke up in the year {year}, in a \
+            world where {noun2}s ruled the world.")
+
+print(story1)
 
 
