@@ -125,6 +125,8 @@ def kitchen():
             print(stylize_text("You have now added these items to your inventory.", Fore.RED, Style.BRIGHT))
             movesLeft(-3)
             print("There are no doors to your right or left. Ahead of you there is a pantry and the hallway is behind you Where would you like to go?")
+        else:
+            print("That's brave. You may regret that later. Just come back when you do. Where would you like to go? ")
     else:
         print("You have entered the kitchen. It's quite small and there are no doors to your right or left. Where would you like to go?")
     pathPicker = ""
