@@ -27,11 +27,11 @@ within the game. That complexity could be great, if you’d like to make this in
 project. *Hint hint.
 
 """
-from time import sleep ## sleep funciton to slow down the terminal
+from time import sleep ## sleep function to slow down the terminal
 
 from colorama import Fore, Style, init
 
-# Initialize colorama
+# Initialise colorama
 init(autoreset=True)
 
 def stylize_text(text, color, style):
